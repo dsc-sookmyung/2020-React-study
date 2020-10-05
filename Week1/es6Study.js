@@ -23,7 +23,7 @@ myCat.hello(); //실행 결과
 /*
     Q2. 위에서 만든 Cat 클래스를 상속받아 CheeseCat 자식클래스를 작성하시오. 
     - CheeseCat 클래스는 grooming 메소드를 가진다. grooming 메소드에서는 "grooming..." 이라는 문자열을 콘솔창에 출력한다. 
-    - CheeseCat 클래스 Cat 클래스의 hello() 메소드를 오버라이딩한다. hello() 메소드에서는 "Mew~ I'm [name]" 을 콘솔에 출력한다. 출력하는 문자열은 템플릿 리터럴로 작성한다.
+    - CheeseCat 클래스 Cat 클래스의 hello() 메소드를 오버라이딩한다. hello() 메소드에서는 "Cheese~ I'm [name]" 을 콘솔에 출력한다. 출력하는 문자열은 템플릿 리터럴로 작성한다.
 
     myCheeseCat이라는 인스턴스를 생성하고(name 멤버변수는 임의의 문자열을 넣어 초기화) 다음을 실행한 결과를 쓰시오. 실행한 결과는 주석으로 작성하시요.
 */
