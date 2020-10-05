@@ -1,1 +1,1 @@
-This is Shi & Bang's repository
+# 1주차 스터디 
