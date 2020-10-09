@@ -17,8 +17,20 @@
 */
 
 // your code here...
+class Cat{
 
-myCat.hello(); //실행 결과
+    constructor(name){
+        this.name = name;
+    }
+
+    hello(){
+        console.log(`Mew~ I\'m ${this.name}`);
+        
+    }
+        
+}
+var myCat = new Cat("JiYeon");
+myCat.hello(); //Mew~ I' JiYeon
 
 /*
     Q2. 위에서 만든 Cat 클래스를 상속받아 CheeseCat 자식클래스를 작성하시오. 
@@ -30,8 +42,20 @@ myCat.hello(); //실행 결과
 
 // your code here...
 
-myCheeseCat.hello(); // 실행 결과
-myCheeseCat.grooming(); // 실행 결과
+class CheeseCat extends Cat{
+
+    grooming(){
+        console.log('grooming...');
+    };
+
+    hello(){
+        console.log(`Cheese~ I'm ${this.name}`);
+    };
+}
+var myCheeseCat = new CheeseCat('JiYeon');
+
+myCheeseCat.hello(); // Cheese~ I'm JiYeon
+myCheeseCat.grooming(); // grooming...
 
 // arrow function
 /*
@@ -45,6 +69,12 @@ function sum1(x, y) {
 }
 
 // your code here...
+
+let sum2 = function(x, y){
+    return x+y;
+}
+
+let sum3 = (x,y)=> x+y;
 
 console.log(sum1(1,2));
 console.log(sum2(1,2));
@@ -71,13 +101,37 @@ const users = [
 ];
 
 // your code here...
+users.map(user=>
+    console.log(`"${user.name}, ${user.age}"`));
+//위에랑 같은결과 값 나오나, arrow 쓰는게 헷갈려서 일반 함수식으로도 작성해보았다. 
+//users.map(function(user){return console.log(`"${user.name}, ${user.age}"`)});
+
+users.filter(user=> user.age>=28).map(user=>console.log(`"${user.name}, ${user.age}"`));
+//겹쳐쓸수 있구나,, 다시보기
+
+users.map(user=>
+    console.log(users.indexOf(user), `${user.name}, ${user.age}`));
+//indexof안에 ${user.name하니까 안됐다. user라는 배열을 넣었더니 나왔다
 
 /*
 04-1. 실행 결과
 
+"Alice, 18"
+"Bob, 30"
+"Carol, 22"
+"Dave, 28"
+
 04-2. 실행 결과
 
+"Bob, 30"
+"Dave, 28"
+
 04-3. 실행 결과
+
+0 Alice, 18
+1 Bob, 30
+2 Carol, 22
+3 Dave, 28
 
 */
 
@@ -89,12 +143,12 @@ const users = [
 let a, b, rest;
 [a, b] = [10, 20];
 
-console.log(a); // 실행 결과
-console.log(b); // 실행 결과
+console.log(a); // 10
+console.log(b); // 20
 
 [a, b, ...rest] = [10, 20, 30, 40, 50];
 
-console.log(rest); //실행 결과
+console.log(rest); //[30, 40, 50]
 
 /*
     Q5-2. 객체 해체 할당
@@ -103,7 +157,7 @@ console.log(rest); //실행 결과
 
 let {a, b, ...rest} = {a: 10, b: 20, c: 30, d: 40}
 
-console.log(a); 
-console.log(b);
-console.log(rest);
+console.log(a); //10
+console.log(b); //20
+console.log(rest); //{c: 30, d: 40}
 
