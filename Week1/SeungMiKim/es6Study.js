@@ -17,6 +17,16 @@
 */
 
 // your code here...
+class Cat{
+    constructor(name){
+        this.name = name; 
+    }
+    hello(){
+        console.log(`Mew~ I'm ${this.name}`); 
+    }
+}
+
+const myCat = new Cat('hodu'); 
 
 myCat.hello(); //실행 결과
 
@@ -29,6 +39,9 @@ myCat.hello(); //실행 결과
 */
 
 // your code here...
+// class CheeseCat extends Cat{
+
+// }
 
 myCheeseCat.hello(); // 실행 결과
 myCheeseCat.grooming(); // 실행 결과
