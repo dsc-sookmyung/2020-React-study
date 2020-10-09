@@ -16,21 +16,18 @@
     인스턴스를 생성함과 동시에 name 멤버변수를 임의의 문자열로 초기화한다.
 */
 
-// your code here...
-class Cat{
-
-    constructor(name){
+class Cat {
+    constructor(name) {
         this.name = name;
     }
-
-    hello(){
-        console.log(`Mew~ I\'m ${this.name}`);
-        
+    hello() {
+        console.log(`Mew~ I'm ${this.name}`);
     }
-        
 }
-var myCat = new Cat("JiYeon");
-myCat.hello(); //Mew~ I' JiYeon
+
+var myCat = new Cat("Yun jung");
+myCat.hello(); //실행 결과 : Mew~ I'm Yun jung
+
 
 /*
     Q2. 위에서 만든 Cat 클래스를 상속받아 CheeseCat 자식클래스를 작성하시오. 
@@ -40,22 +37,18 @@ myCat.hello(); //Mew~ I' JiYeon
     myCheeseCat이라는 인스턴스를 생성하고(name 멤버변수는 임의의 문자열을 넣어 초기화) 다음을 실행한 결과를 쓰시오. 실행한 결과는 주석으로 작성하시요.
 */
 
-// your code here...
-
-class CheeseCat extends Cat{
-
-    grooming(){
+class CheeseCat extends Cat {
+    grooming (){
         console.log('grooming...');
-    };
-
+    }
     hello(){
         console.log(`Cheese~ I'm ${this.name}`);
-    };
+    }
 }
-var myCheeseCat = new CheeseCat('JiYeon');
 
-myCheeseCat.hello(); // Cheese~ I'm JiYeon
-myCheeseCat.grooming(); // grooming...
+var myCheeseCat = new CheeseCat ("Yun Jung");
+myCheeseCat.hello(); // 실행 결과 : Cheese~ I'm Yun Jung
+myCheeseCat.grooming(); // 실행 결과 : grooming...
 
 // arrow function
 /*
@@ -68,13 +61,13 @@ function sum1(x, y) {
     return x + y;
 }
 
-// your code here...
-
-let sum2 = function(x, y){
+var sum2 = function(x,y){
     return x+y;
 }
 
-let sum3 = (x,y)=> x+y;
+var sum3 = (x,y) => {
+    return x+y;
+}
 
 console.log(sum1(1,2));
 console.log(sum2(1,2));
@@ -100,38 +93,25 @@ const users = [
     { name: 'Dave', age: 28 }
 ];
 
-// your code here...
-users.map(user=>
-    console.log(`"${user.name}, ${user.age}"`));
-//위에랑 같은결과 값 나오나, arrow 쓰는게 헷갈려서 일반 함수식으로도 작성해보았다. 
-//users.map(function(user){return console.log(`"${user.name}, ${user.age}"`)});
+//Q4-1
+console.log(users.map(people => `${people.name}, ${people.age}`));
 
-users.filter(user=> user.age>=28).map(user=>console.log(`"${user.name}, ${user.age}"`));
-//겹쳐쓸수 있구나,, 다시보기
+//Q4-2
+const older = users.filter(people =>people.age>=28);
+console.log(older.map(people=> `${people.name},${people.age}`));
 
-users.map(user=>
-    console.log(users.indexOf(user), `${user.name}, ${user.age}`));
-//indexof안에 ${user.name하니까 안됐다. user라는 배열을 넣었더니 나왔다
+//Q4-3
+console.log(users.map((people, index)=>`${index}. ${people.name}, ${people.age}`))
 
 /*
 04-1. 실행 결과
-
-"Alice, 18"
-"Bob, 30"
-"Carol, 22"
-"Dave, 28"
+[ 'Alice, 18', 'Bob, 30', 'Carol, 22', 'Dave, 28' ]
 
 04-2. 실행 결과
-
-"Bob, 30"
-"Dave, 28"
+[ 'Bob,30', 'Dave,28' ]
 
 04-3. 실행 결과
-
-0 Alice, 18
-1 Bob, 30
-2 Carol, 22
-3 Dave, 28
+[ '0. Alice, 18', '1. Bob, 30', '2. Carol, 22', '3. Dave, 28' ]
 
 */
 
@@ -143,12 +123,12 @@ users.map(user=>
 let a, b, rest;
 [a, b] = [10, 20];
 
-console.log(a); // 10
-console.log(b); // 20
+console.log(a); // 실행 결과 : 10
+console.log(b); // 실행 결과 : 20
 
 [a, b, ...rest] = [10, 20, 30, 40, 50];
 
-console.log(rest); //[30, 40, 50]
+console.log(rest); //실행 결과 : [ 30, 40, 50 ]
 
 /*
     Q5-2. 객체 해체 할당
@@ -157,7 +137,7 @@ console.log(rest); //[30, 40, 50]
 
 let {a, b, ...rest} = {a: 10, b: 20, c: 30, d: 40}
 
-console.log(a); //10
-console.log(b); //20
-console.log(rest); //{c: 30, d: 40}
+console.log(a); // 실행 결과 : 10
+console.log(b); // 실행 결과 : 20
+console.log(rest); // 실행 결과 : { c: 30, d: 40 }
 
