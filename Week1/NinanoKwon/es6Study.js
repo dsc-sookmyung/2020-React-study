@@ -23,7 +23,7 @@ class Cat {
   }
 
   hello() {
-    return "Mew~ I'm " + this.name;
+    return "Mew~ I'm " + ${this.name};
   }
 }
 
@@ -46,7 +46,7 @@ class CheeseCat extends Cat {
   }
 
   hello() {
-    return "Cheese~ I'm " + this.name;
+    return "Cheese~ I'm " + ${this.name};
   }
 }
 
@@ -99,17 +99,17 @@ const users = [
 
 // your code here...
 users.map((user) => {
-  return user.name + ", " + user.age;
+  console.log(`${user.name}, ${user.age}`);
 });
 
 users
   .filter((user) => user.age >= 28)
   .map((user) => {
-    return user.name + ", " + user.age;
+    console.log(`${user.name}, ${user.age}`);
   });
 
-users.map((user) => {
-  return users.indexOf(user) + ", " + user.name + ", " + user.age;
+users.map((user, index) => {
+  console.log(`${index}. ${user.name}, ${user.age}`);
 });
 /*
 04-1. (4) ["Alice,18", "Bob,30", "Carol,22", "Dave,28"]
