@@ -23,7 +23,7 @@ class Cat{
     }
 
     hello(){
-        console.log("Mew~ I'm " + this.name);
+        console.log(`Mew~ I'm ${this.name}`);
     }
 }
 
@@ -45,11 +45,11 @@ class CheeseCat extends Cat{
     }
 
     hello(){
-        console.log("Cheese~ I'm " + this.name);
+        console.log(`Cheese~ I'm ${this.name}`);
     }
 }
 
-var myCheeseCat = new CheeseCat('omocomo')
+const myCheeseCat = new CheeseCat('omocomo')
 myCheeseCat.hello(); // Cheese~ I'm omocomo
 myCheeseCat.grooming(); // grooming...
 
