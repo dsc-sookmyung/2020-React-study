@@ -1,4 +1,4 @@
-# Shi & Bang's Directory
+# 2주차 리액트 스터디
 
 ## JSX 문법 
 https://codesandbox.io/s/react-basics-forked-7i5uu?file=/src/App.js

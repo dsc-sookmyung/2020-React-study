@@ -12,15 +12,14 @@
     - Cat 클래스는 name 멤버변수를 가진다. 생성자에서 name 멤버변수를 초기화한다. 
     - Cat 클래스는 hello() 메소드를 가진다. hello 메서드는 "Mew~ I'm [name]" 을 콘솔에 출력한다. 출력하는 문자열은 템플릿 리터럴을 사용하여 작성한다. 
     
-    myCat 이라는 Cat 인스턴스를 생성하고 hello() 메소드를 실행하시오. 메소드를 실행한 결과를 주석으로 작성하시오.
+    myCat 이라는 Cat 인스턴스를 생성하고 hello() 메소드를 실행하시오.
     인스턴스를 생성함과 동시에 name 멤버변수를 임의의 문자열로 초기화한다.
+    myCat.hello();
 */
 
-// your code here...
 class Cat {
-    
     constructor(name) {
-        this.name = name;
+      this.name = name;
     }
 
     hello() {
@@ -28,33 +27,30 @@ class Cat {
     }
 }
 
-let myCat = new Cat("Lee");
-myCat.hello(); //실행 결과 : Mew~ I'm Lee
+const myCat = new Cat("hoo");
+myCat.hello();
 
 /*
     Q2. 위에서 만든 Cat 클래스를 상속받아 CheeseCat 자식클래스를 작성하시오. 
     - CheeseCat 클래스는 grooming 메소드를 가진다. grooming 메소드에서는 "grooming..." 이라는 문자열을 콘솔창에 출력한다. 
     - CheeseCat 클래스 Cat 클래스의 hello() 메소드를 오버라이딩한다. hello() 메소드에서는 "Cheese~ I'm [name]" 을 콘솔에 출력한다. 출력하는 문자열은 템플릿 리터럴로 작성한다.
 
-    myCheeseCat이라는 인스턴스를 생성하고(name 멤버변수는 임의의 문자열을 넣어 초기화) 다음을 실행한 결과를 쓰시오. 실행한 결과는 주석으로 작성하시요.
+    myCheeseCat이라는 인스턴스를 생성하고(name 멤버변수는 임의의 문자열을 넣어 초기화) 다음을 실행한 결과를 쓰시오.
 */
 
-// your code here...
-class CheeseCat extends Cat{
 
-    grooming(){
-        console.log(`groomming...`);
-    }
-
-    hello(){
+class CheeseCat extends Cat {
+    hello() {
         console.log(`Cheese~ I'm ${this.name}`);
+    }
+    grooming() {
+        console.log("grooming...");
     }
 }
 
-let myCheeseCat = new CheeseCat("La");
-
-myCheeseCat.hello(); // 실행 결과 : Cheese~ I'm La
-myCheeseCat.grooming(); // 실행 결과 : groomming...
+const myCheeseCat = new CheeseCat("loo");
+myCheeseCat.hello();
+myCheeseCat.grooming();
 
 // arrow function
 /*
@@ -67,25 +63,22 @@ function sum1(x, y) {
     return x + y;
 }
 
-// your code here...
-const sum2 = function (x, y) {
+let sum2 = function (x, y) {
     return x + y;
 }
 
-const sum3 = (x, y) => x + y;
+let sum3 = (x, y) => x + y;
 
-console.log(sum1(1,2));
-console.log(sum2(1,2));
-console.log(sum3(1,2));
+// console.log(sum1(1,2));
+// console.log(sum2(1,2));
+// console.log(sum3(1,2));
 
 // map
 /*
-    Q4-1. users 객체 배열을 생성하고 map 을 사용하여 콘솔창에 출력하시오.
-    실행 결과는 주석으로 작성하시오.
-    출력 형태: "[name], [age]"
+    Q4-1. users 객체 배열을 생성하고 map 을 사용하여 출력하시오.
+    filter를 사용해서 나이가 28 이상인 사람만 출력하시오.
     
-    Q4-2. filter를 사용해서 나이가 28 이상인 사람만 출력하시오. 
-    출력 형태: "[name], [age]"
+    Q4-2. 출력 형태: "[name], [age]"
     
     Q4-3. map을 사용하여 배열의 인덱스도 함께 출력하시오.
     출력 형태: "[index]. [name], [age]"
@@ -98,51 +91,37 @@ const users = [
     { name: 'Dave', age: 28 }
 ];
 
-// your code here...
-users.map(user => console.log(`${user.name}, ${user.age}`));
+users.map( user => console.log(`${user.name}, ${user.age}`));
 
 users.filter(user => user.age >= 28).map(user => console.log(`${user.name}, ${user.age}`));
 
-users.map((user, index) => console.log(`${index}. ${user.name}, ${user.age}`));
-/*
-04-1. 실행 결과
-Alice, 18
-Bob, 30
-Carol, 22
-Dave, 28
-04-2. 실행 결과
-Bob, 30
-Dave, 28
-04-3. 실행 결과
-0. Alice, 18
-1. Bob, 30
-2. Carol, 22
-3. Dave, 28
-*/
+users.map((data, index) => console.log(`${index}. ${data.name}, ${data.age}`));
 
 // destructuring assignment
 /*
     Q5-1. 배열 해체 할당
         다음을 실행한 결과를 주석으로 작성하시오.
 */
-let a, b, rest;
-[a, b] = [10, 20];
+// let a, b, rest;
+// [a, b] = [10, 20];
 
-console.log(a); // 실행 결과 : 10
-console.log(b); // 실행 결과 : 20
+// console.log(a); // 10
+// console.log(b); // 20
 
-[a, b, ...rest] = [10, 20, 30, 40, 50];
+// [a, b, ...rest] = [10, 20, 30, 40, 50];
 
-console.log(rest); //실행 결과 : [ 30, 40, 50 ]
-
+// console.log(rest); //[ 30, 40, 50 ]
 /*
+    Q5-1. 배열 해체 할당
     Q5-2. 객체 해체 할당
-        다음을 실행한 결과를 주석으로 작성하시오.
+        let {a, b, ...rest} = {a: 10, b: 20, c: 30, d: 40}
+        위의 구문 실행 결과 a, b, rest의 값을 쓰시오.
 */
 
 let {a, b, ...rest} = {a: 10, b: 20, c: 30, d: 40}
 
-console.log(a); // 실행 결과 : 10
-console.log(b); // 실행 결과 : 20
-console.log(rest); // 실행 결과 : { c: 30, d: 40 }
+console.log(a); // 10 
+console.log(b);; // 20 
+console.log(rest); // { c: 30, d: 40 }
+
 
